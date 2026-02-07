@@ -11,7 +11,8 @@
           <div class="section__info">
             <div class="section__head">
               <h2 class="section__title">{{ data.title }}</h2>
-              <a class="section__link" href="{{ data.link_url }}">View all <i class="ion ion-md-arrow-forward"></i></a>
+              <a class="section__link" href="{{ data.link_url }}">View all <ion-icon
+                  name="arrow-forward"></ion-icon></a>
             </div>
             <div class="section__description">{{ data.description_html | safe }}</div>
           </div>
@@ -20,18 +21,14 @@
           <div class="row">
             {% set section = get_section(path="posts/_index.md") %}
             {% for i in range(end=3) %}
-            {% if i < section.pages | length %}
-            {% set post = section.pages | nth(n=i) %}
-              {{ blog_card::blog_card(data = post) }}
-            {% endif %}
-            {% endfor %}
-          </div>
-          {% endif %}
+            {% if i < section.pages | length %} {% set post=section.pages | nth(n=i) %} {{
+              blog_card::blog_card(data=post) }} {% endif %} {% endfor %} </div>
+              {% endif %}
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </section>
 <!-- end blog -->
 {% endmacro blog_section %}
